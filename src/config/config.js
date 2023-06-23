@@ -46,3 +46,5 @@ export {
   PATH_CHAT,
   PATH_TICKET,
 };
+export const NODE_ENV = process.env.NODE_ENV || 'development'
+export const LOG_LEVEL = parseInt(process.env.LOG_LEVEL || '10')

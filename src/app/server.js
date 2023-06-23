@@ -17,6 +17,9 @@ import { COOKIE_KEY } from "../config/config.js";
 import { apiErrorHandler } from "../mid/error.handler.js";
 import { socketFn } from "../mid/soketio.rt.js";
 import { socketChat } from "../mid/socketio.chat.js";
+import { logger } from '../mid/logger.js';
+//utils
+import { winstonLogger } from '../utils/logger.js';
 //DDBB
 import { conectar } from "../dao/mongoose/mongoose.js";
 
@@ -41,18 +44,17 @@ app.set("view engine", "handlebars");
 app.use("/api", apiRouter);
 app.use("/", viewsRouter);
 app.use(apiErrorHandler);
+app.use(logger);
+
 
 const httpServer = app.listen(PORT, () => {
-  console.log(`App listening on port ${PORT}`);
-  console.log("Path to login view: ", "http://localhost:8080/");
-  console.log("Path to Regiter view: ", "http://localhost:8080/register");
-  console.log(
-    "Path to paginate product view: ",
-    "http://localhost:8080/products?limit=10&page=1"
-  );
-  console.log("Path to cart view: ", "http://localhost:8080/carts/:cid}");
-  console.log("Path to create products: ", "http://localhost:8080/newproducts");
-  console.log("Path to API-Products: ", "http://localhost:8080/api/products");
+  winstonLogger.info(`escuchando en puerto ${PORT}`)
+  winstonLogger.info("Path to login view:  http://localhost:8080/");
+  winstonLogger.info("Path to Regiter view:  http://localhost:8080/register");
+  winstonLogger.info("Path to paginate product view: http://localhost:8080/products?limit=10&page=1");
+  winstonLogger.info("Path to cart view: http://localhost:8080/carts/:cid");
+  winstonLogger.info("Path to create products: http://localhost:8080/newproducts");
+  winstonLogger.info("Path to API-Products: http://localhost:8080/api/products");
 });
 
 export const io = new socketIOServer(httpServer);

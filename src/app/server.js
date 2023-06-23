@@ -18,6 +18,7 @@ import { apiErrorHandler } from "../mid/error.handler.js";
 import { socketFn } from "../mid/soketio.rt.js";
 import { socketChat } from "../mid/socketio.chat.js";
 import { logger } from '../mid/logger.js';
+import { errorHandler } from '../mid/errors.js'
 //utils
 import { winstonLogger } from '../utils/logger.js';
 //DDBB
@@ -36,6 +37,7 @@ app.use("/public", express.static("public"));
 app.use(cookieParser(COOKIE_KEY));
 app.use(session);
 app.use(passportInitialize);
+app.use(errorHandler);
 
 app.engine("handlebars", engine());
 app.set("views", "./views");

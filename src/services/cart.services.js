@@ -2,7 +2,7 @@ import {
   ErrorInvalidQuantity,
   ErrorNotFound,
 } from "../models/error/errors.model.js";
-import { cartRepository } from "../repositories/cart.repositrie.js";
+import { cartRepository } from "../repositories/cart.repositorie.js";
 import { productsRepository } from "../repositories/product.repositorie.js";
 
 class CartService {

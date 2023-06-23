@@ -25,16 +25,17 @@ export const logger = new Logger(NODE_ENV, LOG_LEVEL)
 
 import winston from 'winston'
 
-// const levels = {
-//     fatal: 0,
-//     error: 1,
-//     warning: 2,
-//     info: 3,
-//     debug: 4,
-// }
+ const levels = {
+     fatal: 0,
+     error: 1,
+     warning: 2,
+     info: 3,
+     http: 4,
+     debug: 5,
+ }
 
 const winstonLoggerDev = winston.createLogger({
-  // levels,
+   levels,
   transports: [
     new winston.transports.Console({
       level: "debug",
@@ -43,11 +44,14 @@ const winstonLoggerDev = winston.createLogger({
 })
 
 const winstonLoggerProd = winston.createLogger({
-  // levels,
+   levels,
   transports: [
+    new winston.transports.Console({
+        level: "info",
+      }),
     new winston.transports.File({
-      level: "http",
-      filename: 'events.log'
+      level: "error",
+      filename: 'errors.log'
     })
   ]
 })

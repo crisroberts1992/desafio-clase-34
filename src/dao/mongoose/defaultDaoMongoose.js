@@ -102,10 +102,10 @@ export class DaoMongoose {
       if (key !== "limit" && key !== "page" && key !== "sort")
         optQuery[key] = value;
       if (key === "sort" && (value === "asc" || value === "1")) {
-        // @ts-ignore
+        
         optDefault.sort.price = "ascending";
       } else if (key === "sort" && (value === "desc" || value === "-1")) {
-        // @ts-ignore
+        
         optDefault.sort.price = "descending";
       }
       if (key === "stock" && (value === "disp" || value === "1")) {
@@ -116,35 +116,35 @@ export class DaoMongoose {
     const result = await this.#modelDb.paginate(optQuery, optDefault);
 
     return {
-      // @ts-ignore
+      
       payload: result.docs,
-      // @ts-ignore
+      
       status: result.status_code,
-      // @ts-ignore
+      
       totalPages: result.totalPages,
-      // @ts-ignore
+      
       prevPage: result.prevPage,
-      // @ts-ignore
+      
       nextPage: result.nextPage,
-      // @ts-ignore
+      
       page: result.page,
-      // @ts-ignore
+      
       hasPrevPage: result.hasPrevPage,
-      // @ts-ignore
+      
       hasNextPage: result.hasNextPage,
-      // @ts-ignore
+      
       prevLink:
-        // @ts-ignore
+        
         result.hasPrevPage === false
           ? "Not Exist"
-          : // @ts-ignore
+          : 
             linker(data, result.page, "prev"),
-      // @ts-ignore
+      
       nextLink:
-        // @ts-ignore
+        
         result.hasNextPage === false
           ? "Not Exist"
-          : // @ts-ignore
+          : 
             linker(data, result.page, "next"),
     };
   }

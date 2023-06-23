@@ -1,7 +1,7 @@
 import { mmg } from "../../dao/mongoose/messages.dao.mg.js";
 import { ticketsRepository } from "../../repositories/ticket.repository.js";
 import { productsRepository } from "../../repositories/product.repositorie.js";
-import { cartRepository } from "../../repositories/cart.repositrie.js";
+import { cartRepository } from "../../repositories/cart.repositorie.js";
 import Handlebars from "handlebars";
 
 import {

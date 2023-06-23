@@ -1,3 +1,5 @@
+import { winstonLogger as logger } from "../utils/logger.js";
+
 export class DefaultRepository {
   #dao;
   constructor(dao) {
@@ -9,6 +11,7 @@ export class DefaultRepository {
   }
 
   add(element) {
+    logger.http('entré al repositorio (add). criterio : ' + JSON.stringify(element))
     return this.#dao.add(element);
   }
 

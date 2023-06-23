@@ -1,5 +1,5 @@
 import Carts from "../../../models/entities/carts.model.js";
-import { cartRepository } from "../../../repositories/cart.repositrie.js";
+import { cartRepository } from "../../../repositories/cart.repositorie.js";
 
 export async function postCart(req, res, next) {
   try {

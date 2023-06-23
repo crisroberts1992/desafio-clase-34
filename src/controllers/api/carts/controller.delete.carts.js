@@ -1,4 +1,4 @@
-import { cartRepository } from "../../../repositories/cart.repositrie.js";
+import { cartRepository } from "../../../repositories/cart.repositorie.js";
 
 export async function deleteAllPrdCart(req, res, next) {
   try {

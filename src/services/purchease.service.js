@@ -1,5 +1,5 @@
 import Tickets from "../models/entities/Tickets.model.js";
-import { cartRepository } from "../repositories/cart.repositrie.js";
+import { cartRepository } from "../repositories/cart.repositorie.js";
 import { productsRepository } from "../repositories/product.repositorie.js";
 import { ticketsRepository } from "../repositories/ticket.repository.js";
 import { userRepository } from "../repositories/users.repository.js";

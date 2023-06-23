@@ -1,10 +1,14 @@
 import { PERSISTENCIA } from "../config/config.js";
+import { winstonLogger as logger } from "../utils/logger.js";
 
 let userDao;
 let productDao;
 let cartDao;
 let ticketDao;
-if (PERSISTENCIA === "mongoose") {
+let loggerTestDao;
+
+if (PERSISTENCIA === "mongoose"){
+  logger.info("Persistencia elegida: mongoose")
   const { umg } = await import("./mongoose/users.dao.mg.js");
   userDao = umg;
   const { pmg } = await import("./mongoose/product.dao.mg.js");
@@ -13,7 +17,10 @@ if (PERSISTENCIA === "mongoose") {
   cartDao = cmg;
   const { tmg } = await import("./mongoose/ticket.dao.mg.js");
   ticketDao = tmg;
+  const { lmg } = await import("./mongoose/loggerTest.dao.mg.js");
+  loggerTestDao = lmg;
 } else {
+  logger.info("Persistencia elegida: fs")
   const { um } = await import("./fs/users.manager.fs.js");
   userDao = um;
   const { pm } = await import("./fs/product.manager.fs.js");
@@ -22,4 +29,4 @@ if (PERSISTENCIA === "mongoose") {
   ticketDao = tm;
 }
 
-export { userDao, productDao, cartDao, ticketDao };
+export { userDao, productDao, cartDao, ticketDao,loggerTestDao };

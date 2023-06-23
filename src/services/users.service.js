@@ -1,4 +1,4 @@
-import { cartRepository } from "../repositories/cart.repositrie.js";
+import { cartRepository } from "../repositories/cart.repositorie.js";
 import Users from "../models/entities/Users.model.js";
 import Carts from "../models/entities/carts.model.js";
 import { userRepository } from "../repositories/users.repository.js";

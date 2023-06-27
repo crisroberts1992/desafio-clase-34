@@ -1,10 +1,8 @@
+import express from "express";
 import { Router } from "express";
 
-import {
-  handleGet,
-  
-} from "../../controllers/api/tickets/controller.all.ticket.js";
+import {loggerTestGet} from "../../controllers/api/logger/controller.get.logger.js";
 
 export const loggerTestRouter = Router();
 
-loggerTestRouter.get("/:id?", handleGet);
+loggerTestRouter.get("/", loggerTestGet);

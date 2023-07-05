@@ -1,16 +1,9 @@
-body,
-html {
+body,html{
   width: 100%;
-  min-height: 1080px;
+  height: auto;
   font-family: "Open Sans", sans-serif;
-  background-image: radial-gradient(
-    circle at 84.69% 8.66%,
-    #4a464c 0,
-    #332941 25%,
-    #180035 50%,
-    #17002b 75%,
-    #130024 100%
-  );
+  background: rgb(0,0,0);
+  background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(53,53,53,1) 100%);;
 }
 
 .nav-list,
@@ -62,7 +55,7 @@ main {
 }
 
 #cart-heading {
-  color: #01657ed1;
+  color: white;
   margin-top: 0;
 }
 
@@ -83,8 +76,8 @@ main {
   border: 1px solid #ccc;
   border-radius: 10px;
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
-  background-color: #bd9cfa;
-  color: #fff;
+  background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(173,173,173,1) 100%);
+  color: black;
 }
 
 .cart-item h3 {
@@ -106,7 +99,7 @@ main {
 }
 
 .remove-item {
-  background-color: #01657ed1;
+  background-color: #a84809f1;
   color: #fff;
   border: none;
   border-radius: 4px;
@@ -121,4 +114,5 @@ main {
   border: none;
   border-radius: 10px;
   padding: 0.5rem 1rem;
+  font-size: larger;
 }

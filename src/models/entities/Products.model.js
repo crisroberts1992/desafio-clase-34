@@ -11,8 +11,9 @@ export default class Products {
   #stock;
   #status;
   #category;
+  #owner;
 
-  constructor({ title, description, price, thumbnail, code, stock, category }) {
+  constructor({ title, description, price, thumbnail, code, stock, category,owner }) {
     this.#id = Uid();
     this.#title = title;
     this.#description = description;
@@ -21,7 +22,7 @@ export default class Products {
     this.#code = this.validateCode(code);
     this.#stock = this.validateStock(stock);
     this.#status = true;
-    this.#category = this.validateCategory(category);
+    this.#owner = this.validateOwner(owner) ?? "super-admin";
   }
 
   //validations
@@ -72,6 +73,12 @@ export default class Products {
     }
     return category;
   }
+  validateOwner(owner) {
+    if (typeof owner !== "string") {
+      throw new ErrorInvalidArgument("owner must be a string");
+    }
+    return owner;
+  }
 
   // Getters
   get id() {
@@ -110,6 +117,9 @@ export default class Products {
     return this.#category;
   }
 
+  get owner() {
+    return this.#owner;
+  }
   // Method to access data without exposing private fields
   dto() {
     return {
@@ -122,6 +132,7 @@ export default class Products {
       stock: this.#stock,
       status: this.#status,
       category: this.#category,
+      owner: this.#owner
     };
   }
 }

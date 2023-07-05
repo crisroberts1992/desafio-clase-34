@@ -5,7 +5,7 @@ let userDao;
 let productDao;
 let cartDao;
 let ticketDao;
-let loggerTestDao;
+
 
 if (PERSISTENCIA === "mongoose"){
   logger.info("Persistencia elegida: mongoose")
@@ -17,8 +17,7 @@ if (PERSISTENCIA === "mongoose"){
   cartDao = cmg;
   const { tmg } = await import("./mongoose/ticket.dao.mg.js");
   ticketDao = tmg;
-  const { lmg } = await import("./mongoose/loggerTest.dao.mg.js");
-  loggerTestDao = lmg;
+ 
 } else {
   logger.info("Persistencia elegida: fs")
   const { um } = await import("./fs/users.manager.fs.js");
@@ -29,4 +28,4 @@ if (PERSISTENCIA === "mongoose"){
   ticketDao = tm;
 }
 
-export { userDao, productDao, cartDao, ticketDao,loggerTestDao };
+export { userDao, productDao, cartDao, ticketDao };

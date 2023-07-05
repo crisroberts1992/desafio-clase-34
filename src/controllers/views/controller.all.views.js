@@ -12,6 +12,9 @@ import {
   PATH_REGIS,
   PATH_CHAT,
   PATH_TICKET,
+  PATH_FORGOT,
+  PATH_RECOVER,
+  JWT_PRIVATE_KEY
 } from "../../config/config.js";
 
 //helper generado
@@ -105,3 +108,26 @@ export async function chatView(req, res) {
     Head: "Chat",
   });
 }
+
+  export async function forgotView(req, res) {
+    res.render(PATH_FORGOT, {
+      style: "style-forgot",
+      faviconTitle: "Forgotten password",
+    });
+  }
+  
+  export async function recoverView(req, res) {
+    // Verifica el token
+    jwt.verify(req.query.token, JWT_PRIVATE_KEY, (err, decoded) => {
+      if (err) {
+        req.logger.info(err);
+        res.redirect("/login");
+      } else {
+        res.render(PATH_RECOVER, {
+          token: req.query.token,
+          style: "style-recover",
+          faviconTitle: "Forgotten password",
+        });
+      }
+    });
+  }

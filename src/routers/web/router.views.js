@@ -7,6 +7,8 @@ import {
   productView,
   regisView,
   ticketView,
+  forgotView,
+  recoverView
 } from "../../controllers/views/controller.all.views.js";
 import { authJwtView } from "../../mid/authentication.js";
 import { soloRol } from "../../mid/authorization.js";
@@ -40,3 +42,10 @@ viewsRouter.get("/chat", soloRol("user"), chatView);
 //Ticket
 
 viewsRouter.get("/ticket/:tid", ticketView);
+// Forgot password
+
+viewsRouter.get("/forgot", forgotView);
+
+//recover passwors
+
+viewsRouter.get("/recover", recoverView);

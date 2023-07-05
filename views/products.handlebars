@@ -24,12 +24,13 @@
 {{#if listExist}}
   <div class="container">
       {{#each list.payload}}
-             <div class="product-card">
+     <div class="product-card">
       <img src="{{this.thumbnail}}" alt="no photo">
       <h3>{{this.title}}</h3>
       <div class="card-text">
         <p>Categoría: {{this.category}}</p>
         <p>Descripción: {{this.description}}</p>
+        <p>Code: {{this.code}}</p>
         <p>Precio: {{this.price}}</p>
         <p>Stock: {{this.stock}}</p>
       </div>

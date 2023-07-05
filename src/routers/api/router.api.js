@@ -6,7 +6,7 @@ import { usersRouter } from "./router.users.js";
 import { sessionRouter } from "./router.session.js";
 import { ticketsRouter } from "./router.ticket.js";
 import { mocksRouter } from "./router.mock.js";
-import {loggerTestRouter} from "./router.loggerTest.js"
+
 
 export const apiRouter = Router();
 
@@ -19,4 +19,3 @@ apiRouter.use("/carts", cartsRouter);
 apiRouter.use("/users", usersRouter);
 apiRouter.use("/sessions", sessionRouter);
 apiRouter.use("/tickets", ticketsRouter);
-apiRouter.use("/loggerTest", loggerTestRouter);

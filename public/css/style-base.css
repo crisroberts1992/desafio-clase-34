@@ -16,6 +16,7 @@ html {
 }
 
 /* Nav */
+
 .burguer-ico {
   margin: 0 auto;
 }
@@ -280,14 +281,7 @@ footer p {
 }
 
 @media only screen and (max-width: 875px) {
-  /* .burguer-ico {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 50px;
-    padding: 5px;
-  } */
-
+ 
   .nav-list {
     margin-top: 30px;
     flex-direction: column;

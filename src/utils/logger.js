@@ -25,6 +25,8 @@ export const logger = new Logger(NODE_ENV, LOG_LEVEL)
 
 import winston from 'winston'
 
+
+
  const levels = {
      fatal: 0,
      error: 1,
@@ -35,7 +37,7 @@ import winston from 'winston'
  }
 
 const winstonLoggerDev = winston.createLogger({
-   levels,
+  levels:levels,
   transports: [
     new winston.transports.Console({
       level: "debug",
@@ -44,7 +46,7 @@ const winstonLoggerDev = winston.createLogger({
 })
 
 const winstonLoggerProd = winston.createLogger({
-   levels,
+   levels:levels,
   transports: [
     new winston.transports.Console({
         level: "info",

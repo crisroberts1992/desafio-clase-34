@@ -49,7 +49,7 @@ if (
       });
 
       if (status === 200) {
-        // @ts-ignore
+        
         Swal.fire({
           toast: true,
           showConfirmButton: true,
@@ -61,7 +61,7 @@ if (
         });
         window.location.href = "/newproducts";
       } else {
-        // @ts-ignore
+        
         Swal.fire({
           toast: true,
           showConfirmButton: true,
@@ -81,7 +81,7 @@ if (
       });
 
       if (status === 200) {
-        // @ts-ignore
+        
         Swal.fire({
           toast: true,
           showConfirmButton: true,
@@ -93,7 +93,7 @@ if (
         });
         window.location.href = "/newproducts";
       } else {
-        // @ts-ignore
+        
         Swal.fire({
           toast: true,
           showConfirmButton: true,
@@ -123,7 +123,7 @@ async function SerchProduct(code) {
     .then((producto) => {
       console.log(producto);
       if (!producto) {
-        // @ts-ignore
+        
         Swal.fire({
           toast: true,
           showConfirmButton: true,
@@ -180,7 +180,7 @@ async function delProduct(id) {
   const FETCH_URL = `http://localhost:8080/api/products/${id}`;
   const { status } = await fetch(FETCH_URL, { method: "DELETE" });
   if (status === 204) {
-    // @ts-ignore
+    
     Swal.fire({
       toast: true,
       showConfirmButton: true,
@@ -192,7 +192,7 @@ async function delProduct(id) {
     });
     window.location.href = "/newproducts";
   } else {
-    // @ts-ignore
+    
     Swal.fire({
       toast: true,
       showConfirmButton: true,

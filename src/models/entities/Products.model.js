@@ -22,6 +22,7 @@ export default class Products {
     this.#code = this.validateCode(code);
     this.#stock = this.validateStock(stock);
     this.#status = true;
+    this.#category = this.validateCategory(category);
     this.#owner = this.validateOwner(owner) ?? "super-admin";
   }
 

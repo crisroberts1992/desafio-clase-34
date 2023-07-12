@@ -1,0 +1,119 @@
+# Cart
+components:
+  schemas:
+    Cart:
+      type: object
+      required:
+        - id
+        - products
+      properties:
+        id:
+          type: string
+          description: ID autogenerado del Carrito.
+        products:
+          type: array
+          items:
+            product:
+              type: object
+              properties:
+                id:
+                  type: string
+            quantity:
+              type: number
+          default: []
+      example:
+        - product:
+            id: "8b249da4-bf67-4073-b03b-2aaf42987b8a"
+            title: "REMERA DEPORTIVA"
+            description: "remera algodon"
+            price: 5000
+            thumbnail:
+              - ""
+            code: "101"
+            stock: 120
+            status: true
+            category: "deportivo"
+            owner: "super-admin"
+          quantity: 3
+
+#CartProdQ
+components:
+  requestBodies:
+    CartProdQ:
+        type: object
+        properties:
+          product:
+            type: string 
+            description: ID del producto en el carrito.
+          quantity:
+            type: number
+            description: Cantidad del producto en el carrito.
+      example:
+        product: "8b249da4-bf67-4073-b03b-2aaf42987b8a"
+        quantity: 3
+
+components:
+  requestBodies:
+    CartProducts:
+      type: array
+      items:
+        type: object
+        properties:
+          product:
+            type: object
+            properties:
+              _id:
+                type: string
+              id:
+                type: string
+              title:
+          type: string
+          description: El titulo del producto.
+        description:
+          type: string
+          description: La descripcion del producto.
+        price:
+          type: number
+          description: El precio del producto.
+        thumbnail:
+          type: string
+          description: Las URLs de las thumbnail.
+        code:
+          type: string
+          description: El Codigo del producto.
+          maxLength: 7
+        stock:
+          type: number
+          description: La cantidad de stock disponible del producto.
+              status:
+                type: boolean
+                description: Estado del producto.
+               category:
+          type: string
+          description: La categoria del producto.
+          enum:
+            - entrenamiento
+            - deportivo
+            - urbano
+            - accesorios
+                  
+              owner:
+          type: string
+          description: El creador del producto
+          quantity:
+            type: number
+            description: Cantidad del producto en el carrito.
+      example:
+        - product:
+            id: "efgh5678"
+            title: "Example Product"
+            description: "This is an example product."
+            price: 9999
+            thumbnail:
+              - "https://example.com/product.jpg"
+            code: "EXMPL1"
+            stock: 50
+            status: true
+            category: "accesorios"
+            owner: "admin"
+          quantity: 1        

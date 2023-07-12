@@ -38,7 +38,7 @@ const TEST_CONFIG_EMAIL = {
   },
 };
 
-let CONFIG_EMAIL;
+export let CONFIG_EMAIL;
 if (NODE_ENV === "production") {
   CONFIG_EMAIL = PROD_CONFIG_EMAIL;
 } else {
@@ -72,7 +72,6 @@ export {
   PATH_REGIS,
   PATH_CHAT,
   PATH_TICKET,
-  CONFIG_EMAIL,
   PATH_FORGOT,
   PATH_RECOVER,
 };

@@ -1,0 +1,121 @@
+# Product
+components:
+  schemas:
+    Product:
+      type: object
+      required:
+        - id
+        - title
+        - description
+        - price
+        - thumbnail
+        - code
+        - stock
+        - status
+        - category
+        - owner
+      properties:
+        id:
+          type: string
+          description: ID autogenerado para cada producto.
+        title:
+          type: string
+          description: El titulo del producto.
+        description:
+          type: string
+          description: La descripcion del producto.
+        price:
+          type: number
+          description: El precio del producto.
+        thumbnail:
+          type: array
+          items:
+            type: string
+          description: Las URLs de las thumbnail.
+        code:
+          type: string
+          description: El Codigo del producto.
+          maxLength: 7
+        stock:
+          type: number
+          description: La cantidad de stock disponible del producto.
+        status:
+          type: boolean
+          description: El estado del producto.
+        category:
+          type: string
+          description: La categoria del producto.
+          enum:
+            - entrenamiento
+            - deportivo
+            - urbano
+            - accesorios
+        owner:
+          type: string
+          description: El creador del producto.
+      example:
+        id: "8774686c-5b97-44c8-ae51-2fdb0baffd9e"
+        title: "ROMPEVIENTO"
+        description: "rompeviento"
+        price: 20000
+        thumbnail:
+          - "https://images.app.goo.gl/oK4ebf3DmivggnWQA"
+        code: "407"
+        stock: 30
+        status: true
+        category: "deportivo"
+        owner: "super-admin"
+# NewProduct
+components:
+  requestBodies:
+    NewProduct:
+      type: object
+      required:
+        - title
+        - description
+        - price
+        - thumbnail
+        - code
+        - stock
+        - category
+        - owner
+      properties:
+        title:
+          type: string
+          description: El titulo del producto.
+        description:
+          type: string
+          description: La descripcion del producto.
+        price:
+          type: number
+          description: El precio del producto.
+        thumbnail:
+          type: string
+          description: Las URLs de las thumbnail.
+        code:
+          type: string
+          description: El Codigo del producto.
+          maxLength: 7
+        stock:
+          type: number
+          description: La cantidad de stock disponible del producto.
+        category:
+          type: string
+          description: La categoria del producto.
+          enum:
+            - entrenamiento
+            - deportivo
+            - urbano
+            - accesorios
+        owner:
+          type: string
+          description: El creador del producto.
+      example:
+        title: "ROMPEVIENTO"
+        description: "rompeviento"
+        price: 20000
+        thumbnail: "https://images.app.goo.gl/oK4ebf3DmivggnWQA"
+        code: "407"
+        stock: 30
+        category: "deportivo"
+        owner: "super-admin"

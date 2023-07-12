@@ -1,0 +1,118 @@
+paths:
+  /products:
+    post:
+      summary: Crea un nuevo producto.
+      tags:
+        - Productos
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/requestBodies/NewProduct"
+      responses:
+        "201":
+          description: El producto fue creado.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Product"
+
+    get:
+      summary: Devuelve todos los productos.
+      tags:
+        - Productos
+      responses:
+        "200":
+          description: Todos los productos disponible.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Product'                      
+
+  
+/products/code/{code}:
+    get:
+      summary: Devuelve el Producto con el code dado.
+      tags:
+        - Productos
+      parameters:
+      - name: code
+        in: path
+        description: parametro de ruta con el code del producto.
+        required: true
+        type: string
+      responses:
+        "200":
+          description: El producto con el code dado.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+        "404":
+          description: Error de Producto no encontrado.
+
+paths:
+  /products/{id}:
+    get:
+      summary: Devuelve el producto con el ID dado.
+      tags:
+        - Productos
+      parameters:
+      - name: id
+        in: path
+        description: parametro de ruta con el ID del producto.
+        required: true
+        type: string
+      responses:
+        "200":
+          description: El producto con el ID dado.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+        "404":
+          description: Error de Producto no encontrado.
+
+    put:
+      summary: Edita un producto segun el ID dado.
+      tags:
+        - Productos
+      parameters:
+      - name: id
+        in: path
+        description: parametro de ruta con el ID del producto.
+        required: true
+        type: string
+      responses:
+        "200":
+          description: El producto con el ID dado.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+        "404":
+          description: Error de Producto no encontrado.
+  
+    delete:
+      summary: Elimina un producto segun el ID dado.
+      tags:
+        - Productos
+      parameters:
+      - name: id
+        in: path
+        description: parametro de ruta con el ID del producto.
+        required: true
+        type: string
+      responses:
+        "200":
+          description: El producto con el ID dado.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+        "404":
+          description: Error de Producto no encontrado.
+        

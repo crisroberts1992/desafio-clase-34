@@ -3,7 +3,7 @@ paths:
     post:
       summary: Crea un nuevo producto.
       tags:
-        - Productos
+        - Products
       requestBody:
         required: true
         content:
@@ -17,11 +17,12 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Product"
-
+#paths:
+  #/api/products:
     get:
       summary: Devuelve todos los productos.
       tags:
-        - Productos
+        - Products
       responses:
         "200":
           description: Todos los productos disponible.
@@ -32,12 +33,12 @@ paths:
                 items:
                   $ref: '#/components/schemas/Product'                      
 
-  
-/products/code/{code}:
+#paths:
+  /products/code/{code}:
     get:
       summary: Devuelve el Producto con el code dado.
       tags:
-        - Productos
+        - Products
       parameters:
       - name: code
         in: path
@@ -54,12 +55,12 @@ paths:
         "404":
           description: Error de Producto no encontrado.
 
-paths:
+#paths:
   /products/{id}:
     get:
       summary: Devuelve el producto con el ID dado.
       tags:
-        - Productos
+        - Products
       parameters:
       - name: id
         in: path
@@ -75,11 +76,12 @@ paths:
                 $ref: '#/components/schemas/Product'
         "404":
           description: Error de Producto no encontrado.
-
+#paths:
+  #/products/{id}:
     put:
       summary: Edita un producto segun el ID dado.
       tags:
-        - Productos
+        - Products
       parameters:
       - name: id
         in: path
@@ -95,11 +97,12 @@ paths:
                 $ref: '#/components/schemas/Product'
         "404":
           description: Error de Producto no encontrado.
-  
+#paths:
+  #/products/{id}:  
     delete:
       summary: Elimina un producto segun el ID dado.
       tags:
-        - Productos
+        - Products
       parameters:
       - name: id
         in: path

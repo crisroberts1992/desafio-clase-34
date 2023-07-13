@@ -66,7 +66,7 @@ components:
         category: "deportivo"
         owner: "super-admin"
 # NewProduct
-components:
+#components:
   requestBodies:
     NewProduct:
       type: object

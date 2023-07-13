@@ -1,0 +1,288 @@
+#POST
+paths:
+  /carts/{cid}/product/{pid}:
+    post:
+      summary: Agregar productos en el carrito
+      tags:
+        - Carts
+      parameters:
+        - name: cid
+          in: path
+          description: toma el cart ID en la ruta
+          required: true
+          type: string
+        - name: pid
+          in: path
+          description: toma el producto ID en la ruta
+          required: true
+          type: string
+      responses:
+        "201":
+          description: Producto agregado al carrito.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Cart"
+              example:
+                id: "8774686c-5b97-44c8-ae51-2fdb0baffd9e"
+                title: "ROMPEVIENTO"
+                description: "rompeviento"
+                price: 20000
+                thumbnail:
+                - "https://images.app.goo.gl/oK4ebf3DmivggnWQA"
+                code: "407"
+                stock: 30
+                status: true
+                category: "deportivo"
+                owner: "super-admin"
+#paths:
+  #/carts/{cid}/product/{pid}:
+    put:
+      summary: Edita la cantidad del producto en un carrito segun su ID
+      tags:
+        - Carts
+      parameters:
+        - name: cid
+          in: path
+          description: toma el cart id de la ruta
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                product:
+                  type: string
+                  description: El ID del producto en el carrito.
+                quantity:
+                  type: number
+                  description: La cantidad del producto en el carrito.
+            example:
+              product: "843a07505-6c5a-47ea-b22c-dd75537d246a"
+              quantity: 5
+      responses:
+        "200":
+          description: Productos en el carrito segun su ID
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    product:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                        title:
+                          type: string
+                        description:
+                          type: string
+                        price:
+                          type: number
+                        thumbnail:
+                          type: array
+                          items:
+                            type: string
+                        code:
+                          type: string
+                        stock:
+                          type: number
+                        status:
+                          type: boolean
+                        category:
+                          type: string
+                          enum:
+                            - entrenamiento
+                            - deportivo
+                            - urbano
+                            - accesorios
+                            
+                        owner:
+                          type: string
+                    quantity:
+                      type: number
+                example:
+                  - product:
+                    id: "43a07505-6c5a-47ea-b22c-dd75537d246a"
+                    title: "REMERA DEPORTIVA"
+                    description: "remera deportiva de algodon"
+                    price: 5000
+                    thumbnail:
+                      - ""
+                    code: "101"
+                    stock: 129
+                    status: true
+                    category: "deportivo"
+                    owner: "super-admin"
+                    quantity: 3
+                  - product:
+                    id: "efgh5678"
+                    title: "Example Product"
+                    description: "This is an example product."
+                    price: 9999
+                    thumbnail:
+                      - "https://example.com/product.jpg"
+                    code: "EXMPL1"
+                    stock: 50
+                    status: true
+                    category: "accesorios"
+                    owner: "admin"
+                    quantity: 1
+        "404":
+          description: carrito no encontrado                          
+#DELETE
+#paths:
+  #/carts/{cid}/product/{pid}:
+    delete:
+      summary: Elimina el producto en el carrito
+      tags:
+        - Carts
+      parameters:
+        - name: cid
+          in: path
+          description: toma el cart id de la ruta
+          required: true
+          type: string
+        - name: pid
+          in: path
+          description: toma el producto id de la ruta
+          required: true
+          type: string
+      responses:
+        "200":
+          description: Producto borrado del carrito.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Cart"                
+
+#paths:
+  /carts:
+    post:
+      summary: Crea un nuevo carrito
+      tags:
+        - Carts
+      responses:
+        "201":
+          description: Carrito creado.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Cart"
+              example:
+                id: "4770d7e1-6e69-467a-bc20-6274d8e648a8"
+                products: []
+#GET
+#paths:
+  /carts/{id}:
+    get:
+      summary: Muestra los productos en el carrito por su ID
+      tags:
+        - Carts
+      parameters:
+        - name: id
+          in: path
+          description: toma el cart id de la ruta
+          required: true
+          type: string
+      responses:
+        "200":
+          description: El carrito segun el id
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Cart"
+        "404":
+          description: cart not found Error
+#DELETE
+#paths:
+  #/carts/{id}:
+    delete:
+      summary: Elimina todos los productos en el carrito
+      tags:
+        - Carts
+      parameters:
+        - name: id
+          in: path
+          description: toma el cart id de la ruta
+          required: true
+          type: string
+      responses:
+        "200":
+          description: Productos borrados del carrito.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Cart"
+              example:
+                id: "4770d7e1-6e69-467a-bc20-6274d8e648a8"
+                products: []
+
+
+#PUT
+#paths:
+  #/carts/{id}:
+    put:
+      summary: Edita los productos en el carrito segun su ID
+      tags:
+        - Carts
+      parameters:
+        - name: id
+          in: path
+          description: toma el cart id de la ruta
+          required: true
+          type: string
+        - name: pid
+          in: path
+          description: toma el producto id de la ruta
+          required: true
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/requestBodies/CartProducts"
+      responses:
+        "200":
+          description: Productos en el cart  id
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Cart"
+              example:
+                - product:
+                    id: "43a07505-6c5a-47ea-b22c-dd75537d246a"
+                    title: "REMERA DEPORTIVA"
+                    description: "remera deportiva de algodon"
+                    price: 5000
+                    thumbnail:
+                      - ""
+                    code: "101"
+                    stock: 129
+                    status: true
+                    category: "deportivo"
+                    owner: "super-admin"
+                  quantity: 3
+                - product:
+                    id: "efgh5678"
+                    title: "Example Product"
+                    description: "This is an example product."
+                    price: 9999
+                    thumbnail:
+                      - "https://example.com/product.jpg"
+                    code: "EXMPL1"
+                    stock: 50
+                    status: true
+                    category: "accesorios"
+                    owner: "admin"
+                  quantity: 1
+        "404":
+          description: carrito no encontrado
+
